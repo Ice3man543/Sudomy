@@ -1320,7 +1320,7 @@ echo -e "${BOLD}${PADDING}${PADDING}\t-${RESET}${BOLD}${RESET}${LGREEN} output/$
               _template >> ${OUT}/${DATE_LOG}/${DOMAIN}/report/subdomains.html
         else
            COUNT_TOTAL_HTTPROBE=$(cat ${OUT}/${DATE_LOG}/${DOMAIN}/${RESULT_HTTPROBE} | wc  -l  );
-              MAKE_TABLE=$(awk 'BEGIN{print ""} {print "<tr>";for(i=1;i<=NF;i++)print "<td>" $i"</td>";print "</tr>"} END{print ""}' ${OUT}/${DATE_LOG}/${DOMAIN}/${RESULT_HTTPROBE})
+              MAKE_TABLE=$(awk 'BEGIN{print ""} {print "<tr>";for(i=1;i<=NF;i++)print "<td><a href=\""$i;print"\">"; $i"</a></td>";print "</tr>"} END{print ""}' ${OUT}/${DATE_LOG}/${DOMAIN}/${RESULT_HTTPROBE})
               echo ${MAKE_TABLE} >> ${OUT}/${DATE_LOG}/${DOMAIN}/report/valid_probe.html 
           _template >> ${OUT}/${DATE_LOG}/${DOMAIN}/report/valid_probe.html;fi 
 
